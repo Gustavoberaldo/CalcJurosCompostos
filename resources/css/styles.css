@@ -1,0 +1,29 @@
+.d-flex {
+  display: flex;
+}
+
+.m-top-input {
+  margin-top: 2%;
+}
+
+body {
+  background-color: rgb(45,45,45);
+  color: white;
+}
+
+input {
+  border-color: salmon !important;
+  background-color: transparent !important;
+  color: white !important;
+}
+
+input:focus{
+  box-shadow: 0 0 0 0.2rem #ffaca26b !important;
+}
+
+button {
+  color: #f17272 !important;
+  background-color: transparent !important;
+  border-color: #f17272 !important;
+}
+

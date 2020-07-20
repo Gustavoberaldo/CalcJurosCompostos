@@ -1,150 +1,60 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Gus Projects - Calculadora de Juros Compostos</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
-</style>
-  <script>
-//----------Função da calculadora----------//
-    //faz o cáculo dos juros compostos
-    function calcular(){
-    var p=form1.valor_inicial.value;
-    var t=form1.valor_mensal.value;
-    var i=form1.taxa_de_juros.value;
-    var n=form1.periodo.value;
-    var s = 0;
-
-      i=i/100 // faz o calculo da porcentagem
-
-      s = p * Math.pow((1 + i), n) + t * (Math.pow((1 + i), n) - 1)/i;
-      
-      window.alert('O total acumulado no futuro será de aproximadamente: R$' + s.toFixed('2'));
-    }
-
-//----------Funções de validação----------//
-
-//OBS.: tentei colocá-las todas em uma função; porém quando mudo o cursor de campo, acontece o mesmo que quando o .focus está inserido (aparecem popups infinitos); quando muda de campo, ao pressionar tab fica com popups infinitos tambem.
-
-    //valida o campo Valor inicial
-    function validarInicial(){
-    var valorInicial=form1.valor_inicial.value;
-      if(valorInicial==""){
-        window.alert('por favor preencha o campo Valor inicial');
-        form1.valor_inicial;
-        return false;
-      }
-    }
-    //valida o campo Valor mensal
-    function validarMensal(){
-    var valorPeriodico=form1.valor_mensal.value;
-      if(valorPeriodico==""){
-        window.alert('por favor preencha o campo Valor mensal');
-        form1.valor_mensal;
-        return false;
-      }
-    }
-    //valida o campo Taxa de juros
-    function validarJuros(){
-    var taxaJuros=form1.taxa_de_juros.value;
-      if(taxaJuros==""){
-        window.alert('por favor preencha o campo Taxa de juros');
-        form1.taxa_de_juros;
-        return false;
-      }
-    }
-    //valida o campo Período
-    function validarPeriodo(){
-    var periodo=form1.periodo.value;
-      if(periodo==""){
-        window.alert('por favor preencha o campo Período');
-        form1.periodo;
-        return false;
-      }
-    }
-  </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./resources/css/styles.css">
 </head>
+
 <body>
-
-<nav>
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="https://gustavoberaldo.github.io/Gus-Projects/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROJECTS</a>
-    <div class="w3-dropdown-hover w3-hide-small">
-      <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">Nothing here yet.</a>
-      </div>
-    </div>
-    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
-  </div>
-</div>
-
-<!-- Navbar on small screens -->
-<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#band" class="w3-bar-item w3-button w3-padding-large">PROJECTS</a>
-  <a href="#tour" class="w3-bar-item w3-button w3-padding-large">ABOUT ME</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large">CONTACT</a>
-</div>
-</nav>
-
-<!-- Page content -->
-<section>
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
-
-  <!-- About Me Section -->
-  <div class="w3-black" id="tour">
-    <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-      <h2 class="w3-wide w3-center">Calculadora de Juros Compostos</h2>
-      <p class="w3-opacity w3-center"><i>Ao usar a calculadora, não use a tecla TAB para mudar de campo. Caso use e dê problema, saia da página e abra-a novamente.</i></p><br>
-        <div class="w3-container w3-content w3-center" style="max-width:800px" id="band">
-          <div class="w3-row">
-            <div class="w3-third">
-            </div>
-            <div class="w3-center">
-              <p align="center">
-                  <form name="form1" action ="javascript:window.history.go(0)" method="post">
-                    Valor inicial:
-                    <input name="valor_inicial" type="text" onblur="validarInicial()" ><br><br>
-                    Valor mensal:
-                    <input name="valor_mensal" type="text" onblur="validarMensal()" ><br><br>
-                    Taxa de juros:
-                    <input name="taxa_de_juros" type="text" onblur="validarJuros()" > % <br><br>
-                    Período (em meses):
-                    <input name="periodo" type="text" onblur="validarPeriodo()" ><br><br>
-                    <button class="w3-button w3-light-grey w3-section" onclick="return calcular()">Calcular</button>
-                  </form>
-              </p>
-            </div>      
-          </div>  
+    <div class="container">
+        <div class="text-center col-12 p-5">
+            <h1>Calculadora de Juros Compostos</h1>
+            <form name="juros">
+                <div class="col-12 d-flex m-top-input">
+                    <div class="text-right col-5">
+                        <label>Valor inicial:&nbsp;</label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control form-control" type="number" name="valor_inicial" id="valor_inicial" placeholder="0,00">
+                    </div>
+                </div>
+                <div class="col-12 d-flex m-top-input">
+                    <div class="text-right col-5">
+                        <label>Investimento fixo mensal:&nbsp;</label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control form-control" type="number" name="valor_mensal" id="valor_mensal" placeholder="0,00">
+                    </div>
+                </div>
+                <div class="col-12 d-flex m-top-input">
+                    <div class="text-right col-5">
+                        <label>Taxa de Juros:&nbsp;</label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control form-control" type="number" step="0.01" name="taxa_juros" id="taxa_juros" placeholder="0,00">
+                    </div>
+                </div>
+                <div class="col-12 d-flex m-top-input">
+                    <div class="text-right col-5">
+                        <label>Período(meses):&nbsp;</label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control form-control" type="number" name="periodo" id="periodo" placeholder="0">
+                    </div>
+                </div>
+                <p class="m-top-input">
+                    <button class="btn btn-primary" type="submit" id="calcular">Calcular</button>
+                </p>
+                <h3 id="resultado"></h3>
+            </form>
         </div>
     </div>
-  </div>    
-
-  
-</section>  
-<!-- End Page Content -->
-</div>
-
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
-  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer>
-
+    <script src="./resources/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./resources/js/script.js"></script>
 </body>
+
 </html>
